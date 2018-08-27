@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Django</title>
+    <link rel="stylesheet" href={% static "/css/master.css" %}>
+  </head>
+  <body>
+    <h1>All Data Will Be Here</h1>
+    <div class="djangotwo">
+      {% if name_list %}
+        <table>
+          <thead>
+            <th>Site Name</th>
+            <th>url</th>
+            <th>Date</th>
+          </thead>
+          {% for D in name_list %}
+              <tr>
+                <td>{{ D.name }}</td>
+                <td>{{ D.url }}</td>
+                <td>{{ D.date }}</td>
+              </tr>
+          {% endfor %}
+        </table>
+      {% else %}
+        <p>No Record Found</p>
+      {% endif %}
+
+    </div>
+  </body>
+</html>
